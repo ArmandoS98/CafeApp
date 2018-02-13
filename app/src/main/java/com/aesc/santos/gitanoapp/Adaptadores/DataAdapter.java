@@ -1,10 +1,14 @@
 package com.aesc.santos.gitanoapp.Adaptadores;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +50,25 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ProductosViewH
         Picasso.with(context).load(android_versions.get(position).getAndroid_image_url()).fit().error(R.mipmap.ic_launcher).into(holder.foto);
         //-----------------------------------------------------------------------------------------------------------
 
+    }
+
+    @Override
+    public void onViewAttachedToWindow(ProductosViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            animateCircularReveal(holder.itemView);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void animateCircularReveal(View view){
+        int centerX = 0;
+        int centerY = 0;
+        int startRadius = 0;
+        int endRadius = Math.max(view.getWidth(), view.getHeight());
+        Animator animaton = ViewAnimationUtils.createCircularReveal(view,centerX,centerY,startRadius,endRadius);
+        view.setVisibility(View.VISIBLE);
+        animaton.start();
     }
 
     @Override
