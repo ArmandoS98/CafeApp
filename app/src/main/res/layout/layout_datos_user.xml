@@ -24,7 +24,7 @@
         android:layout_marginTop="5dp"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@color/background"/>
+        android:textColor="@color/background_blue_dark"/>
 
 
     <TextView
@@ -35,6 +35,6 @@
         android:layout_below="@+id/tvNameUser"
         android:layout_centerHorizontal="true"
         android:textSize="11sp"
-        android:textColor="@color/background"/>
+        android:textColor="@color/background_blue_dark"/>
 
 </RelativeLayout>

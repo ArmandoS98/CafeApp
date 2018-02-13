@@ -62,8 +62,8 @@
     <Button
         android:onClick="Guardar"
         android:layout_marginTop="15dp"
-        android:background="@color/background"
-        android:textColor="@color/fuente"
+        android:background="@color/background_blue_dark"
+        android:textColor="@color/white_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"/>
